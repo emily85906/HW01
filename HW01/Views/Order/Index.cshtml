@@ -1,0 +1,60 @@
+﻿
+@ViewBag.OrderAdd
+
+@using (Html.BeginForm("Index", "Order"))
+{
+
+    <table>
+        <tr>
+            <td>訂單編號</td>
+            <td>
+                <input type="text" id="OrderId" name="OrderId" />
+            </td>
+        </tr>
+        <tr>
+            <td>客戶名稱</td>
+            <td>
+                <input type="text" id="CustomerName" name="CustomerName" />
+            </td>
+        </tr>
+        <tr>
+            <td>負責員工</td>
+            <td>
+                <input type="text" id="EmployeeName" name="EmployeeName"/>
+            </td>
+        </tr>
+        <tr>
+            <td>出貨公司</td>
+            <td>
+                <input type="text" id="ShipCompany" name="ShipCompany" />
+            </td>
+        </tr>
+        <tr>
+            <td>訂購日期</td>
+            <td>
+                <input type="text" id="OrderDate"  name="OrderDate"/>
+            </td>
+        </tr>
+        <tr>
+            <td>出貨日期</td>
+            <td>
+                <input type="text" id="ShipDate" name="ShipDate" />
+            </td>
+        </tr>
+        <tr>
+            <td>需要日期</td>
+            <td>
+                <input type="text" id="RequiredDate" name="RequiredDate" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input type="submit" value="查詢" />
+            </td>
+            <td>
+                <input type="button" id="clear" value="清除" />
+            </td>
+        </tr>
+    </table>
+
+}
