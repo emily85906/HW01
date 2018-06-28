@@ -99,18 +99,29 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\OrderController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\Order.cs" />
-    <Compile Include="Models\OrderSearchArg.cs" />
-    <Compile Include="Models\OrderService.cs" />
+    <Compile Include="Models\Customers.cs" />
+    <Compile Include="Models\Dao\DaoConnect.cs" />
+    <Compile Include="Models\Employees.cs" />
+    <Compile Include="Models\Orders.cs" />
+    <Compile Include="Models\Service\CustomerService.cs" />
+    <Compile Include="Models\Service\EmployeeService.cs" />
+    <Compile Include="Models\Service\OrderService.cs" />
+    <Compile Include="Models\Service\ShipperService.cs" />
+    <Compile Include="Models\Shippers.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -121,9 +132,11 @@
     <None Include="packages.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Order\Index.cshtml" />
+    <Content Include="Views\Orders\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
-    <Content Include="Views\Order\InsertOrder.cshtml" />
+    <Content Include="Views\Orders\InsertOrder.cshtml" />
+    <Content Include="Views\Orders\UpdateOrder.cshtml" />
+    <Content Include="Views\Orders\InquireOrder.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

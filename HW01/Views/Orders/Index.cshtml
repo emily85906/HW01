@@ -1,0 +1,69 @@
+﻿@model HW01.Models.Orders
+@{
+    /**/
+    HW01.Models.Customers customer = new HW01.Models.Customers();
+    HW01.Models.Employees employee = new HW01.Models.Employees();
+    ViewBag.Title = "Index";
+    IList<HW01.Models.Orders> orders = ViewBag.orderAllList;
+    List<HW01.Models.Customers> customerAllList = ViewBag.customerAllList;
+    List<HW01.Models.Employees> employeeAllList = ViewBag.employeeAllList;
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Index", "Orders", FormMethod.Post))
+{
+
+    @Html.ActionLink("新增", "InsertOrder", null, new { @class = "btn btn-info" })
+    <input type="button" value="修改" id="updateOrder" class="btn btn-info" />
+    <input type="button" value="刪除" id="deleteOrder" class="btn btn-info" />
+    <input type="button" value="查詢" id="inquireOrder" class="btn btn-info" />
+    <table>
+        <tr>
+            <td width="5%"></td>
+            <td width="10%">訂單編號</td>
+            <td width="20%">客戶</td>
+            <td width="20%">負責員工</td>
+            <td width="20%">訂單日期</td>
+        </tr>
+
+        @foreach (var row in ViewBag.orderAllList)
+        {
+            customer = customerAllList.Single(m => m.CustomerID == row.CustomerID);
+            employee = employeeAllList.Single(m => m.EmployeeID == row.EmployeeID);
+            <tr>
+                <td><input type="radio" name="order" value="@row.OrderID" /></td>
+                <td>@row.OrderID</td>
+                <td>@customer.CompanyName</td>
+                <td>@employee.LastName @employee.FirstName</td>
+                <td>@row.OrderDate</td>
+            </tr>
+        }
+    </table>
+}
+
+<script>
+    $("#updateOrder").click(function () {
+        var checkID = $('input[name=order]:checked').val();
+        if (!checkID)
+            alert('請選擇ID');
+        else
+            location.href = "./UpdateOrder?OrderID=" + checkID;
+    });
+    $("#deleteOrder").click(function () {
+        var checkID = $('input[name=order]:checked').val();
+        if (!checkID)
+            alert('請選擇ID');
+        else
+            alert('已刪除' + checkID)
+        location.href = "./DeleteOrder?OrderID=" + checkID;
+    });
+    $("#inquireOrder").click(function () {
+        var checkID = $('input[name=order]:checked').val();
+        if (!checkID)
+            alert('請選擇ID');
+        else
+            location.href = "./InquireOrder?OrderID=" + checkID;
+
+
+    });
+</script>
